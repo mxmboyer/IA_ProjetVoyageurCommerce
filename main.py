@@ -5,6 +5,7 @@ from random import randint
 from first_try import *
 from a_star import *
 from ida_star import *
+from genetic_algorithm import *
 
 # Fonction pour générer un graphe complet aléatoire avec la possibilité de spécifier un nombre de sommets ainsi
 # qu'une borne supérieur pour le poids aléatoire de chaque arrête
@@ -47,3 +48,6 @@ a_star2.solve()
 
 ida_star = IDA_star(graphe)
 ida_star.solve()
+
+genetic_algorithm = Genetic(graphe)
+genetic_algorithm.solve()
