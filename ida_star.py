@@ -41,14 +41,9 @@ class IDA_star:
     def f(self, n):
         return self.g(n) + self.heuristique(n)
     
-    # retourne g(n) soit la distance du chemin parcouru depuis le départ jusqu'à la ville de l'état n
+    # retourne le résultat de g(n) soit la somme des distances précédentes d'un état n depuis le départ
     def g(self, n):
-        e = n
-        distance = e.distance
-        while(e.pere != -1):
-            e = e.pere
-            distance += e.distance
-        return distance
+        return n.distance
     
     # retourne h(n) soit l'heuristique associé à cet état n
     def heuristique(self, n):

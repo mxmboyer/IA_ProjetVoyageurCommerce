@@ -40,14 +40,9 @@ class AStar2:
     def f(self, n):
         return self.g(n) + self.heuristique(n)
     
-    # retourne le résultat de g(n) soit la somme des distances précédentes pour un état n
+    # retourne le résultat de g(n) soit la somme des distances précédentes d'un état n depuis le départ
     def g(self, n):
-        e = n
-        distance = e.distance
-        while(e.pere != -1):
-            e = e.pere
-            distance += e.distance
-        return distance
+        return n.distance
     
     # retourne la valeur de l'heuristique h(n) pour un état n
     def heuristique(self, n):
