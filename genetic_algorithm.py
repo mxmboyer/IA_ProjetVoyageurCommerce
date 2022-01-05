@@ -7,7 +7,7 @@ class Genetic:
     def __init__(self, G, taille_population='None', nbr_iteration=10):
         self.graphe = G.copy()
         if(taille_population=='None'):
-            self.taille_pop = 10
+            self.taille_pop = len(self.graphe.edges)
         else:
             self.taille_pop = taille_population
         self.nbr_iter = nbr_iteration
