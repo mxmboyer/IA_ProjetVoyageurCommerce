@@ -4,8 +4,13 @@ import random
 class Genetic:
 
     #constructeur de la classe
-    def __init__(self, G):
+    def __init__(self, G, taille_population='None', nbr_iteration=10):
         self.graphe = G.copy()
+        if(taille_population=='None'):
+            self.taille_pop = 10
+        else:
+            self.taille_pop = taille_population
+        self.nbr_iter = nbr_iteration
         
     #definir le score de chaque chemin
     def fitness(self, chemin):
@@ -67,7 +72,7 @@ class Genetic:
 
     def solve(self):
         #size of the population : nbr arretes
-        size_pop = len(self.graphe.edges)
+        size_pop = int(self.taille_pop)
         population = []
 
         #generation de la population initiale  
@@ -79,7 +84,7 @@ class Genetic:
 
         #evolution de la population
         iterations = 0
-        while(iterations < 10):
+        while(iterations < int(self.nbr_iter)):
             new_population = []
             selec_pop = self.selection(population)
             for i in range(size_pop):
@@ -96,5 +101,8 @@ class Genetic:
 
         #on prend le meilleur individu
         meilleure_pop = self.selection(population)
+        distance = self.fitness(meilleure_pop[0])
+        solution = meilleure_pop[0]
+        solution.append(meilleure_pop[0][0])
         #on sélectionne celui qui est en haut du classement
-        print("Le meilleur chemin avec l'algorithme génétique est " + str(meilleure_pop[0]) + ". Ce chemin a une distance totale de " + str(self.fitness(meilleure_pop[0])))
+        print("Le meilleur chemin avec l'algorithme génétique est " + str(solution) + ". Ce chemin a une distance totale de " + str(distance))

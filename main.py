@@ -51,3 +51,6 @@ ida_star.solve()
 
 genetic_algorithm = Genetic(graphe)
 genetic_algorithm.solve()
+
+genetic_algorithm_2 = Genetic(graphe, taille_population=20, nbr_iteration=50)
+genetic_algorithm_2.solve()
